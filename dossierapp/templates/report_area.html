@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+<title>Report - Dossier</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=devicewidth, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="type/css" href="fontawesome/css/all.min.css">
+<link rel="stylesheet" type="type/css" href="fontawesome/js/all.min.js">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+<style type="text/css">
+</style>
+</head>
+<body>
+        {% extends "sevenlivesInc.html" %}
+        {% block signup %}signout{% endblock %}
+        {% block signin %}{% endblock %}
+        {% block dashboard %}{% endblock %}
+        {% block report %}CONTACT{% endblock %}
+
+        {% block innercontainer %}
+            <div class="row">
+                <div class="col-md p-3">
+                    <h3>Report Area</h3>
+                </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col-md text-center">
+                   <form method="post" action="">
+                    <div>
+                     <select class="border-info rounded-3 bg-info" name="selector" id="" style="width: 300px; height: 35px;">
+                        <option selected>This report is about...</option>
+                        <option value="ABSENTISM">ABSENTISM</option>
+                        <option value="ACCOUNTABILITY">ACCOUNTABILITY</option>
+                        <option value="COORPERATION">COORPERATION</option>
+                        <option value="DISAPPOINTMENT">DISAPPOINTMENT</option>
+                        <option value="PUNCTUALITY">PUNCTUALITY</option>
+                        <option value="OTHERS">OTHERS</option>
+                    </select>
+                        <label for="report">Please type your observations in the box below. Let your expression be basic as much as possible and be specific. Write below:</label>
+                        <textarea class="text-area border-info rounded-3" id="" placeholder="Enter text here...." name="report" cols="113" rows="10"></textarea>
+
+                        <button type="button" class=" btn btn-info text-white mt-3" style="width:150px; height: 50px; border-radius: 7px; ">submit</button>
+                    </form>
+                </div>
+                </div>
+               </div>
+                        {% endblock %}
+
+                        {% block formcontainer %}
+
+                        {% endblock %}
+           
+
+</body>
+
+<div></div>

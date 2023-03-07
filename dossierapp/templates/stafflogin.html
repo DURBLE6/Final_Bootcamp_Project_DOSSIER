@@ -1,0 +1,75 @@
+								{% extends "layout.html" %}	
+                                {% block logout %}
+                                {% endblock %}
+								{% block stafflogin%}
+				<div class="col-md rounded-2 text-center pt-4" style="overflow: scroll; background-color: rgb(224, 224, 224); height: 380px;">
+					<p><b> PLEASE TAKE NOTE OF THE FOLLOWING AS YOU USE THE PLATFORM </b></p><hr>
+						<P>Speech is necessary for learning, interacting with others and for people to develop. Speech begins at an early age and it develops as a person ages. There are different elements the endSpeech is necessary for learning, interacting with others and for people to develop. Speech begins at an early age and it develops as a person ages. There are different elements th.</P>
+
+							<small>Please register <b><a style="font-style: italic; text-decoration: none;" href="/staffregister" >HERE</a></b> if you don't have an accout yet. Note that this is mandatory for all the staffs </small>
+				</div>
+					<div class="col-md rounded-2 pt-5 px-5" style="background-color: rgb(4, 4, 121);  height: 380px; color: white;">
+						 <main class="form-signin" id="signUpForm">
+                            <form method="post" action="">
+                                <input type="hidden" name="csrf_token" id="csrf_token" value="{{csrf_token()}}">
+                                <h1 class="mb-5 fs-5 text-center">Staff Login</h1>
+                                    {% with msg = get_flashed_messages(with_categories = True) %}
+                                    {% if msg: %}
+                                    {% for cat,m in msg: %}
+                                    {% if cat == 'error': %}
+                                    <div class="badge bg-danger mb-4">{{ m|safe}}</div>
+                                    {% elif cat == 'success': %}
+                                    <div class="badge bg-success mb-4  text-center">{{ m|safe}}</div>
+                                    {% else: %}
+                                    <div class="badge bg-warning mb-4  text-center">{{ m|safe}}</div>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    {% endwith %}
+                                <div class="form-floating text-dark">
+                                    <input type="email" name="email" class="form-control mb-1" style="color: black; height:50px;" id="floatingMail" placeholder="name@example.com" required>
+                                    <label for="floatingInput">Email address</label>
+                                </div>
+                                <div class="form-floating text-dark">
+                                    <input type="password" name="pwd" class="form-control mb-1" style="height:50px;" id="floatingPassword" placeholder="Password" required>
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+								                  <a href="/forgotpassword" class=""> forgot password?</a>
+                                  {% if session['staff']: %}
+                                <button class="w-25 btn btn-primary offset-5 mt-3 col-12" type="button" href="#" onclick="return alert('You\'re logged in already, please signout before logging in again')">Login</button>
+                                  {% else%}
+                                <button class="w-25 btn btn-primary offset-5 mt-3 col-12" type="submit" href="#">Login</button>
+                                {% endif %}
+                            </form>
+                        </main>
+					</div>
+
+                          <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <small class="modal-title" id="exampleModalLabel">Enter your email below, a reset link will be sent to the email, please follow the instructions to reset your password</small>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="">
+        <input type="hidden" name="csrf_token" id="csrf_token" value="{{csrf_token()}}">
+        <div class="form-group row mb-3">
+          <div class="col-md-10">
+            <input type="email" class="form-control" name="email">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="">Send Link</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+									{% endblock %}
+							
+
+					
